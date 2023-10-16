@@ -1,0 +1,239 @@
+/*CUSTOM PROPERTIES*/
+:root {
+    --Morado: #9c27b0;  
+    --Morado-Oscuro: #89119d;
+    --Amarillo: #ffce00;
+    --Amarillo-Oscuro: #FFD700;
+    --Blanco: #fff;
+    --Negro: #000;
+
+    --Fuente-Principal: 'Staatliches', cursive;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*Evitar usar calculador de rem. 1REM=10PX*/
+}
+  *, *:before, *:after {
+    box-sizing: inherit; 
+  }
+
+  /*GLOBALES*/
+  body {
+      background-color: var(--Morado);
+      font-size: 1.6rem;
+      line-height: 1.5;
+  }
+  p {
+      font-size: 1.8rem;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--Blanco);
+  }
+  a {
+      text-decoration: none;
+  }
+  img {
+      max-width: 100%;
+  }
+  .contenedor {
+      max-width: 120rem;
+      margin: 0 auto;
+  }
+  h1, h2, h3 {
+      text-align: center;
+      color: var(--Amarillo);
+      font-family: var(--Fuente-Principal);
+  }
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3.2rem; }
+  h3 { font-size: 2.4rem; }
+
+  /*HEADER*/
+  .header {
+      display: flex;
+      justify-content: center;
+  }
+  .header__logo {
+      margin: 3rem 0;
+  }
+
+/*FOOTER*/
+.footer {
+background-color: var(--Morado-Oscuro);
+padding: 1rem 0;
+margin-top: 2rem;
+}
+.footer__texto {
+text-align: center;
+font-family: var(--Fuente-Principal);
+font-size: 2.2rem;
+}
+
+/*NAVEGACIÓN*/
+.navegacion {
+background-color: var(--Morado-Oscuro);
+padding: 1rem 0;
+display: flex;
+justify-content: center;
+/*gap: 2rem; /*Separación entre elementos del nav forma nueva*/
+}
+.navegacion__enlace {
+font-family: var(--Fuente-Principal);
+color: var(--Blanco);
+font-size: 3rem;
+margin-right: 2rem; /*Separación entre los elementos forma vieja*/
+}
+.navegacion__enlace:last-of-type {
+margin-right: 0;
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover { /*Cuando nos colocamos en el enlace cambia de color*/
+color: var(--Amarillo);
+}
+
+/*GRID*/
+.grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+.grid {
+grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+/*PRODUCTOS*/
+.producto {
+background-color: var(--Morado-Oscuro);
+padding: 1rem;
+}
+.producto__imagen {
+width: 100%;
+}
+.producto__nombre {
+font-size: 4rem;
+}
+.producto__precio {
+font-size: 2.5rem;
+color: var(--Amarillo);
+line-height: 2rem;
+}
+.producto__nombre,
+.producto__precio {
+font-family: var(--Fuente-Principal);
+text-align: center;
+margin: 2rem 0;
+}
+
+/*GRAFICOS EN LOS PRODUCTOS*/   
+.grafico {
+min-height: 30rem; /*Altura mínima*/
+min-width: 100%;
+background-repeat: no-repeat;
+background-size:cover ;
+grid-column: 1 / 3;
+}
+
+.grafico--camisas {
+grid-row: 2 / 3;
+background-image: url(../FrontEndStore_inicio/img/grafico1.jpg);
+}
+.grafico--node {
+background-image: url(../FrontEndStore_inicio/img/grafico2.jpg);
+grid-row: 8 / 9;
+}
+@media screen and (min-width: 768px) {
+.grafico--node {
+grid-row: 5 / 6;
+grid-column: 2 / 4;
+        }
+        
+}
+
+/*PÁGINA NOSOTROS*/
+.nosotros {
+display: grid;
+grid-template-rows: repeat(2, auto);
+}
+
+@media screen and (min-width: 768px) {
+.nosotros {      
+grid-template-columns: repeat(2, 1fr);
+column-gap: 2rem;
+        }
+}
+
+.nosotros__imagen {
+grid-row: 1 / 2;
+width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .nosotros__imagen  {
+        grid-column: 2 / 3;
+    }
+}
+
+/*BLOQUES*/
+@media screen and (min-width: 768px) {
+.bloques {
+grid-template-columns: repeat(4, 1fr);
+ }   
+}
+
+.bloques {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 2rem ;
+}
+
+.bloque {
+text-align: center;    
+}
+
+.bloque__titulo {
+margin: 0;
+}
+/*PÁGINA DEL PRODUCTO*/
+@media  screen and (min-width: 768px) {
+.camisa {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+column-gap: 2rem;
+    }
+}
+
+.formulario {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 2rem;
+grid-column: 1 / 3;
+}
+
+.formulario__campo {
+border: 1rem solid var(--Morado-Oscuro);
+background-color: var(--Morado);
+color: var(--Blanco);
+font-size: 2rem;
+font-family: Arial, Helvetica, sans-serif;
+padding: 1rem;
+appearance: none; /*Quita la flecha del campo de tallas*/
+width: 100%;
+grid-column: 1 / 3;
+}
+
+.formulario__submit {
+background-color: var(--Amarillo-Oscuro);
+border: none;
+border-radius: 1rem;
+font-size: 2rem;
+font-family: var(--Fuente-Principal);
+padding: 2rem;
+transition: backgraund-color .3s ease;
+grid-column: 1 / 3; 
+}
+
+.formulario__submit:hover {
+cursor: pointer;
+background-color: var(--Amarillo);
+}
